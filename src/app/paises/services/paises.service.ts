@@ -17,4 +17,19 @@ export class PaisesService {
     return this.http.get<Country[]>(url);
     // .pipe(catchError(err=> of([])));
   }
+
+  buscarCapital(termino: string): Observable<Country[]>{
+    const url = `${this.apiUrl}/capital/${termino}`;
+    return this.http.get<Country[]>(url);
+  }
+
+  buscarPorCodigo(id: string): Observable<Country[]>{
+    const url = `${this.apiUrl}/alpha/${id}`;
+    return this.http.get<Country[]>(url);
+  }
+
+  buscarPorRegion(termino: string){
+    const url = `${this.apiUrl}/region/${termino}`;
+    return this.http.get<Country[]>(url);
+  }
 }
